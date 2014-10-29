@@ -16,8 +16,8 @@ def returnDefault(ftp):
 	return retList
 
 host = '127.0.0.1'
-userName = 'user'
-passWord = 'user'
+userName = 'anonymous'
+passWord = 'user@res.com'
 ftp = ftplib.FTP(host)
 ftp.login(userName, passWord)
 returnDefault(ftp)
