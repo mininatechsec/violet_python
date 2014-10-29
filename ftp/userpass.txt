@@ -1,0 +1,5 @@
+administrator:password
+admin:123456
+root:secret
+guest:guest
+root:toor
