@@ -16,10 +16,20 @@ def connect(user, host, password):
 		return
 	if ret == 1:
 		child.sendline('yes')
-	ret = child.expect([pexpect.TIMEOUT, '[P|p]assword:'])
-	if ret == 0:
-		print '[-] Error Connecting'
-		return
+		ret = child.expect([pexpect.TIMEOUT, '[P|p]assword:'])
+		if ret == 0:
+			print '[-] Error Connecting'
+			return
 	child.sendline(password)
 	child.expect(PROMPT)
 	return child
+
+def main():
+	host = 'localhost'
+	user = 'user'
+	password = 'password'
+	child = connect(user, host, password)
+	send_command(child, 'cat /etc/passwd | grep user')
+
+if __name__ == '__main__':
+	main()
